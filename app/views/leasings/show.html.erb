@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @leasing %>
+
+<div>
+  <%= link_to "Edit this leasing", edit_leasing_path(@leasing) %> |
+  <%= link_to "Back to leasings", leasings_path %>
+
+  <%= button_to "Destroy this leasing", @leasing, method: :delete %>
+</div>

@@ -1,0 +1,82 @@
+<%= form_with(model: leasing_car) do |form| %>
+  <% if leasing_car.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(leasing_car.errors.count, "error") %> prohibited this leasing_car from being saved:</h2>
+
+      <ul>
+        <% leasing_car.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :leasing_type_id, style: "display: block" %>
+    <%= form.text_field :leasing_type_id %>
+  </div>
+
+  <div>
+    <%= form.label :date_leasing, style: "display: block" %>
+    <%= form.date_field :date_leasing %>
+  </div>
+
+  <div>
+    <%= form.label :return_date, style: "display: block" %>
+    <%= form.date_field :return_date %>
+  </div>
+
+  <div>
+    <%= form.label :leasing_value, style: "display: block" %>
+    <%= form.text_field :leasing_value %>
+  </div>
+
+  <div>
+    <%= form.label :payment_method_id, style: "display: block" %>
+    <%= form.text_field :payment_method_id %>
+  </div>
+
+  <div>
+    <%= form.label :card_id, style: "display: block" %>
+    <%= form.text_field :card_id %>
+  </div>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div>
+    <%= form.label :cvv, style: "display: block" %>
+    <%= form.text_field :cvv %>
+  </div>
+
+  <div>
+    <%= form.label :due_date, style: "display: block" %>
+    <%= form.date_field :due_date %>
+  </div>
+
+  <div>
+    <%= form.label :cardholder_name, style: "display: block" %>
+    <%= form.text_field :cardholder_name %>
+  </div>
+
+  <div>
+    <%= form.label :personal_iden_number, style: "display: block" %>
+    <%= form.text_field :personal_iden_number %>
+  </div>
+
+  <div>
+    <%= form.label :car_model_id, style: "display: block" %>
+    <%= form.text_field :car_model_id %>
+  </div>
+
+  <div>
+    <%= form.label :people_id, style: "display: block" %>
+    <%= form.text_field :people_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

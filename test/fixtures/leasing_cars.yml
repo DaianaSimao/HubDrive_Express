@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  leasing_type: one
+  date_leasing: 2023-12-02
+  return_date: 2023-12-02
+  leasing_value: MyString
+  payment_method: one
+  card: one
+  number: 1
+  cvv: MyString
+  due_date: 2023-12-02
+  cardholder_name: MyString
+  personal_iden_number: MyString
+  car_model: one
+  people: one
+
+two:
+  leasing_type: two
+  date_leasing: 2023-12-02
+  return_date: 2023-12-02
+  leasing_value: MyString
+  payment_method: two
+  card: two
+  number: 1
+  cvv: MyString
+  due_date: 2023-12-02
+  cardholder_name: MyString
+  personal_iden_number: MyString
+  car_model: two
+  people: two

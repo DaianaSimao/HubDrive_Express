@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @type_address %>
+
+<div>
+  <%= link_to "Edit this type address", edit_type_address_path(@type_address) %> |
+  <%= link_to "Back to type addresses", type_addresses_path %>
+
+  <%= button_to "Destroy this type address", @type_address, method: :delete %>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Leasings</h1>
+
+<div id="leasings">
+  <% @leasings.each do |leasing| %>
+    <%= render leasing %>
+    <p>
+      <%= link_to "Show this leasing", leasing %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New leasing", new_leasing_path %>

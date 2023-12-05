@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  people: one
+  document_type: one
+  number_document: MyString
+  expiration_date: 2023-12-02
+
+two:
+  people: two
+  document_type: two
+  number_document: MyString
+  expiration_date: 2023-12-02

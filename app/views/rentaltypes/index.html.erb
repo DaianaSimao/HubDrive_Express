@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Rentaltypes</h1>
+
+<div id="rentaltypes">
+  <% @rentaltypes.each do |rentaltype| %>
+    <%= render rentaltype %>
+    <p>
+      <%= link_to "Show this rentaltype", rentaltype %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New rentaltype", new_rentaltype_path %>
