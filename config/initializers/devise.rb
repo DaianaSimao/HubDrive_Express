@@ -269,8 +269,8 @@ Devise.setup do |config|
   config.sign_out_via = :get
 
   # ==> OmniAuth
-  config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_secret)
-  #config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:client_id], Rails.application.credentials.google_oauth2[:client_secret]
+  config.omniauth :facebook, Rails.application.credentials.facebook[:app_id], Rails.application.credentials.facebook[:app_secret]
+  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:client_id], Rails.application.credentials.google_oauth2[:client_secret]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
