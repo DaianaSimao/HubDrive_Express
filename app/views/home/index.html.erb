@@ -1,6 +1,8 @@
 <!-- inside app/views/home/index.html.erb -->
-<h1>Welcome, this is the home page</h1>  
-  
- <% if user_signed_in? %>
+<h1>Bem-vindo, esta é a página inicial</h1>
+
+<% if user_signed_in? %>
   <%= link_to "Logout", destroy_user_session_url, method: :delete, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Entrar", new_user_session_url, class: "btn btn-primary" %>
 <% end %>
