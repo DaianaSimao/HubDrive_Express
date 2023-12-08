@@ -17,11 +17,8 @@ Rails.application.routes.draw do
   resources :type_addresses
   resources :people
   devise_for :users, controllers: {
-      registrations: "registrations",
-      omniauth_callbacks: "users/omniauth_callbacks",
-      confirmations: "confirmations",
-      passwords: "passwords",
-      unlocks: "unlocks"
+    omniauth_callbacks: "users/omniauth_callbacks",
+    sessions: "users/sessions"
   }
 
  root "home#index"
