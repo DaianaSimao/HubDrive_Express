@@ -1,30 +1,51 @@
-<h2>Log in</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label "Login" %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "Login" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= form_for(resource, as: resource_name, url: new_user_session_path) do |f| %>
+<div class="container">
+    <div class="row g-0 mt-5 mb-5 height-100">
+        <div class="col-md-6">
+            <div class="bg-dark p-4 h-100 sidebar">
+                <ul class="chart-design">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bg-white p-4 h-100">
+                <div class="p-3 d-flex justify-content-center flex-column align-items-center"> <span class="main-heading">Log In</span>
+                    <div class="form-data">
+                      <%= f.label "Email" %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-100" %>
+                    </div>
+                    <div class="form-data">
+                      <%= f.label "Senha" %>
+                      <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, class: "form-control w-100" %>
+                    </div>
+                    <div class="d-flex justify-content-between w-100 align-items-center">
+                        <div class="form-check"> 
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexCheckDefault">
+                             Remember me </label> </div> 
+                             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                              <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class:"text-decoration-none forgot-text", style: "margin-left: 190px;" %><br />
+                            <% end %>
+                    </div>
+                    <div class="signin-btn w-100 mt-2">
+                      <%= f.submit "Entrar", class: "btn btn-outline-dark" %>
+                    </div>
+<% end %>
+                      <%= render "users/shared/links" %>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<% unless current_user %>
-  <%= link_to “Sign in with Facebook”, user_facebook_omniauth_authorize_path %>
-  <%= link_to "Sign in with Google kk", user_google_oauth2_omniauth_authorize_path %>
-<% else %>
-  <%= link_to “Logout”, destroy_user_session_path, method: :delete %>
-<% end %>
