@@ -277,6 +277,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  i18n
   jbuilder
   jsbundling-rails
   omniauth-facebook

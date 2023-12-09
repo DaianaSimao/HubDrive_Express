@@ -10,6 +10,8 @@ module HubDriveExpress
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    I18n.load_path += Dir[File.expand_path("config/locales") + "/*.yml"]
+    I18n.default_locale = "pt-BR"
 
     # Configuration for the application, engines, and railties goes here.
     #

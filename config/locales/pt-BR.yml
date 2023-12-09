@@ -1,0 +1,9 @@
+pt-BR:
+  models:
+    user:
+      attributes:
+        name: "Nome"
+        email: "E-mail"
+        password: "Senha"
+        age: "Idade"
+        address: "Endereço"
