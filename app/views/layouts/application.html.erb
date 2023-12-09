@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,20 +15,30 @@
 
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-      <button class="navbar-toggler" type="button" data-target="#navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav">
-          <li class="nav-item active"> <a href="#" class="nav-link"> Home </a> </li>
-          <li class="nav-item"> <a href="#" class="nav-link"> Product </a> </li>
+          <li class="nav-item active"><%= link_to 'Home', root_path, class: "nav-link" %></li>
+          <% if user_signed_in? %>
+             <li class="nav-item"><%= link_to "Sair", destroy_user_session_url, method: :delete, class: "nav-link"%>
+          <% else %>
+            <li class="nav-item"><%= link_to 'Entrar', new_user_session_url, class: "nav-link" %></li>
+          <% end %>
           <li class="nav-item"> <a href="#" class="nav-link"> About </a> </li>
           <li class="nav-item"> <a href="#" class="nav-link"> Contact Us </a> </li>
         </ul>
       </div>
     </nav>
-    <div style="margin-top: 110px;">
-    <h1>Diversão sobre rodas</h1>
+    <div style="margin-top: 110px;">    
+      <div class="container">
+        <% flash.each do |type, message| %>
+          <div class="notice notice-<%= type == "alert" ? "danger" : "info" %>"  role="alert" >
+            <strong><%= message %></strong>
+          </div>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>
