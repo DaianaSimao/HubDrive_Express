@@ -9,7 +9,7 @@
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %><br />
+  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "text-decoration-none forgot-text" %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -31,10 +31,11 @@
         <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "btn btn-danger ", style: "margin-right: 10px;" do %>
           <i class="bi bi-google"></i>
         <% end %>
-      <% end %>
-    <% end %>
-        <%= link_to "#", class: "btn btn-dark", style: "margin-right: 10px;" do %>
+      <% elsif provider == :github %>
+        <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: "btn btn-dark", style: "margin-right: 10px;" do %>
           <i class="bi bi-github"></i>
         <% end %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
