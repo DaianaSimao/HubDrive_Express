@@ -1,9 +1,28 @@
 pt-BR:
-  models:
-    user:
-      attributes:
-        name: "Nome"
+  activerecord:
+    models:
+      user: "Usuário"
+    attributes:
+      user:
         email: "E-mail"
         password: "Senha"
-        age: "Idade"
-        address: "Endereço"
+        password_confirmation: "Confirmação de Senha"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "já está em uso"
+              invalid: "não é válido"
+            password:
+              blank: "não pode ficar em branco"
+              too_short:
+                one: "é muito curta (mínimo: %{count} caractere)"
+                blank: "não pode ficar em branco"
+                other: "é muito curta (mínimo: %{count} caracteres)"
+                invalid: "não é válido"
+            password_confirmation:
+              one: "é muito curta (mínimo: %{count} caractere)"
+              blank: "não pode ficar em branco"
+              confirmation: "não coincide com a confirmação"
+              invalid: "não é válido"
