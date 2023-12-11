@@ -29,6 +29,13 @@
           <li class="nav-item"> <a href="#" class="nav-link"> About </a> </li>
           <li class="nav-item"> <a href="#" class="nav-link"> Contact Us </a> </li>
         </ul>
+
+        <% if current_user.present? %>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"> <%= link_to "Sair", destroy_user_session_url, method: :delete, class: "nav-link"%> </li>
+            <li class="nav-item"> <span class="nav-link text-end">Seja bem vindo <%= current_user.people.name %></span> </li>
+          </ul>
+          <% end %>
       </div>
     </nav>
     <div style="margin-top: 110px;">    
@@ -70,3 +77,4 @@
     }, 5000);
   });
 </script>
+<%= console %>
