@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  belongs_to :people
+  accepts_nested_attributes_for :people
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
