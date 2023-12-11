@@ -7,6 +7,7 @@ pt-BR:
         email: "E-mail"
         password: "Senha"
         password_confirmation: "Confirmação de Senha"
+        reset_password_token: "Token de redefinição de senha"
     errors:
       models:
         user:
@@ -26,3 +27,5 @@ pt-BR:
               blank: "não pode ficar em branco"
               confirmation: "não coincide com a confirmação"
               invalid: "não é válido"
+            reset_password_token:
+              blank: "não pode ficar em branco"

@@ -37,10 +37,21 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true # Isso permite que os erros de entrega de e-mail sejam levantados para diagnóstico.
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp # Você precisa configurar o método de entrega como SMTP.
+  # config/environments/development.rb
+  config.action_mailer.default_options = { from: 'seu_email@gmail.com' }
 
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: 'daiana.xd11@gmail.com',
+    password: 'zqfw fugr gczl qjqk',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
