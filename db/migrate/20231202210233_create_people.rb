@@ -5,7 +5,8 @@ class CreatePeople < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :telephone
       t.date :birth_date
-      
+      t.string :address
+      t.string :cpf
 
       t.timestamps
     end

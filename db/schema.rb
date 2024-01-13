@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_02_221939) do
-
+ActiveRecord::Schema[7.0].define(version: 2024_01_13_142932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "address_types", force: :cascade do |t|
     t.string "address_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -30,16 +29,16 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
     t.string "city"
     t.bigint "people_id", null: false
     t.bigint "address_type_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["address_type_id"], name: "index_addresses_on_address_type_id"
     t.index ["people_id"], name: "index_addresses_on_people_id"
   end
 
   create_table "brand_types", force: :cascade do |t|
     t.string "brand_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "car_models", force: :cascade do |t|
@@ -52,22 +51,22 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
     t.string "country_origin"
     t.bigint "brand_type_id", null: false
     t.bigint "platform_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["brand_type_id"], name: "index_car_models_on_brand_type_id"
     t.index ["platform_id"], name: "index_car_models_on_platform_id"
   end
 
   create_table "card_types", force: :cascade do |t|
     t.string "card_type_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "document_types", force: :cascade do |t|
     t.string "document_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -76,8 +75,8 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
     t.string "number_document"
     t.date "expiration_date"
     t.date "emission_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["document_type_id"], name: "index_documents_on_document_type_id"
     t.index ["people_id"], name: "index_documents_on_people_id"
   end
@@ -96,8 +95,8 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
     t.string "personal_iden_number"
     t.bigint "car_model_id", null: false
     t.bigint "people_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["car_model_id"], name: "index_leasing_cars_on_car_model_id"
     t.index ["leasing_type_id"], name: "index_leasing_cars_on_leasing_type_id"
     t.index ["payment_cards_id"], name: "index_leasing_cars_on_payment_cards_id"
@@ -107,22 +106,22 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
 
   create_table "leasing_types", force: :cascade do |t|
     t.string "leasing_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "payment_cards", force: :cascade do |t|
     t.string "card_network"
     t.bigint "card_type_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["card_type_id"], name: "index_payment_cards_on_card_type_id"
   end
 
   create_table "payment_methods", force: :cascade do |t|
     t.string "payment_method"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
@@ -130,28 +129,30 @@ ActiveRecord::Schema.define(version: 2023_12_02_221939) do
     t.string "last_name"
     t.string "telephone"
     t.date "birth_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cpf"
+    t.string "address"
   end
 
   create_table "platforms", force: :cascade do |t|
     t.string "platform_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: 6
-    t.datetime "remember_created_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "login", default: "", null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "people_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["login"], name: "index_users_on_login", unique: true
     t.index ["people_id"], name: "index_users_on_people_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
