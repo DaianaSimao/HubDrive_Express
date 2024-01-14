@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :people, optional: true
+  has_one :people, dependent: :destroy
   accepts_nested_attributes_for :people
 
   # Include default devise modules. Others available are:

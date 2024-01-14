@@ -20,32 +20,8 @@
                   <%= f.label "Email" %><br />
                   <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control w-100" %>
                 </div>
-                <%= f.fields_for :people_attributes do |people_fields| %>
-                  <div class="form-data">
-                    <%= f.label "Nome"%><br />
-                    <%= people_fields.text_field :name, placeholder: "Nome", class: "form-control w-100" %>
-                  </div>
-                   <div class="form-data">
-                    <%= f.label "Sobrenome"%><br />
-                    <%= people_fields.text_field :last_name, placeholder: "Sobrenome", class: "form-control w-100" %>
-                  </div>
-                   <div class="form-data">
-                    <%= f.label "Telefone"%><br />
-                    <%= people_fields.text_field :telephone, placeholder: "Telefone", class: "form-control w-100" %>
-                  </div>
-                   <div class="form-data">
-                    <%= f.label "Data de nascimento"%><br />
-                    <%= people_fields.date_field :birth_date, placeholder: "Data de nascimento" %>
-                  </div>
-                  <div class="form-data">
-                    <%= f.label "CPF/Cnpj" %><br />
-                    <%= people_fields.text_field :cpf, id: "cpf_cnpj_field", placeholder: "CPF/Cnpj:" %>
-                  </div>
-                  <div class="form-data">
-                    <%= f.label "Endereço" %><br />
-                    <%= people_fields.text_field :address, placeholder: "Endereço:", class: "form-control w-100" %>
-                  </div>
-                <% end %>
+                <%= render "users/shared/people_attributes_fields", f: f %>
+                
                 <div class="form-data">
                   <%= f.label "Senha" %>
                   <% if @minimum_password_length %>

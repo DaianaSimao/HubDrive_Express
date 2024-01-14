@@ -7,6 +7,7 @@ class CreatePeople < ActiveRecord::Migration[7.0]
       t.date :birth_date
       t.string :address
       t.string :cpf
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
